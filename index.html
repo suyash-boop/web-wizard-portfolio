@@ -1,60 +1,394 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Suyash | Atlantis</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <style>
+      /* Fix for the bright background */
+      html, body {
+        background-color: #000000;
+        color: white;
+        min-height: 100vh;
+      }
+      
+      .animated-gradient {
+        background: linear-gradient(-45deg, #000000, #030303, #050505, #0a0a0a);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+      }
+      
+      /* Grid lines background - making more subtle */
+      .grid-lines {
+        background-image: 
+          linear-gradient(rgba(59, 130, 246, 0.02) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(59, 130, 246, 0.02) 1px, transparent 1px);
+        background-size: 40px 40px;
+        background-position: center center;
+      }
+      
+      /* Enhanced glass effect - making darker */
+      .glass-effect {
+        backdrop-filter: blur(10px);
+        background: rgba(0, 0, 0, 0.95);
+        border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+      }
+      
+      @keyframes gradient {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+
+      /* Neon glow effects */
+      .neon-blue {
+        text-shadow: 0 0 10px rgba(59, 130, 246, 0.7), 0 0 20px rgba(59, 130, 246, 0.5);
+        color: #93c5fd;
+      }
+      
+      .neon-cyan {
+        text-shadow: 0 0 10px rgba(6, 182, 212, 0.7), 0 0 20px rgba(6, 182, 212, 0.5);
+        color: #67e8f9;
+      }
+      
+      .cyber-border {
+        position: relative;
+        border: 1px solid rgba(59, 130, 246, 0.3);
+      }
+      
+      .cyber-border::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: linear-gradient(45deg, #3b82f6, #0284c7, #3b82f6);
+        z-index: -1;
+        filter: blur(10px);
+        opacity: 0.5;
+      }
+      
+      /* Enhanced glass effect */
+      .glass-effect {
+        backdrop-filter: blur(10px);
+        background: rgba(0, 0, 0, 0.8);
+        border-bottom: 1px solid rgba(59, 130, 246, 0.3);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      }
+      
+      /* Grid lines background */
+      .grid-lines {
+        background-image: 
+          linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+        background-size: 40px 40px;
+        background-position: center center;
+      }
+      
+      /* Enhanced particles */
+      .particle {
+        position: absolute;
+        background-color: rgba(59, 130, 246, 0.5);
+        border-radius: 50%;
+        filter: blur(1px);
+      }
+      
+      /* New animations */
+      @keyframes glitch {
+        0% { transform: translate(0); }
+        20% { transform: translate(-2px, 2px); }
+        40% { transform: translate(-2px, -2px); }
+        60% { transform: translate(2px, 2px); }
+        80% { transform: translate(2px, -2px); }
+        100% { transform: translate(0); }
+      }
+      
+      .glitch {
+        animation: glitch 0.5s ease-in-out infinite;
+        animation-play-state: paused;
+      }
+      
+      .glitch:hover {
+        animation-play-state: running;
+      }
+      
+      /* Hexagon shape for image */
+      /* Improved image shape */
+      .hexagon {
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        position: relative;
+      }
+      
+      /* Alternative shape - rounded square */
+      .rounded-image {
+        border-radius: 16px;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      /* Enhanced image styling */
+      .image-container {
+        position: relative;
+        filter: saturate(0.8) contrast(1.1) brightness(0.85);
+        box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+        border: 2px solid rgba(59, 130, 246, 0.2);
+        overflow: hidden;
+      }
+      .dark-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+        mix-blend-mode: multiply;
+        z-index: 1;
+      }
+      
+      /* Enhanced image styling */
+      .image-container {
+        position: relative;
+        filter: saturate(0.8) contrast(1.1) brightness(0.85);
+      }
+    </style>
   </head>
-  <body class="bg-slate-900">
-    <div class="px-4 py-4">
-      <nav class="flex items-center justify-between relative">
+  <body class="animated-gradient grid-lines">
+    <div class="particles" id="particles"></div>
+    
+    <!-- Navigation wrapper -->
+    <div class="px-6 py-5 glass-effect sticky top-0 z-50">
+      <nav class="flex items-center justify-between relative z-10 max-w-7xl mx-auto">
         <a
           href="#"
-          class="text-blue-300 text-4xl font-bold border-2 border-red-500 px-4 py-2 transition-colors duration-300 hover:text-blue-400"
+          class="text-white text-4xl font-bold px-4 py-2 transition-colors duration-300 hover:text-blue-400 neon-blue glitch"
           >Atlantis</a>
         <!-- Desktop Menu -->
-        <ul class="hidden md:flex items-center text-white space-x-10">
-          <li class="hover:text-sky-700 transition-colors duration-300 cursor-pointer">Home</li>
-          <li class="hover:text-sky-700 transition-colors duration-300 cursor-pointer">Project</li>
-          <li class="hover:text-sky-700 transition-colors duration-300 cursor-pointer">Services</li>
-          <li class="hover:text-sky-700 transition-colors duration-300 cursor-pointer">Contact</li>
+        <ul class="hidden md:flex items-center text-white space-x-12 text-lg">
+          <li class="hover:text-blue-400 transition-colors duration-300 cursor-pointer relative group">
+            <a href="#">Home</a>
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+          </li>
+          <li class="hover:text-blue-400 transition-colors duration-300 cursor-pointer relative group">
+            <a href="https://github.com/suyash-boop">Project</a>
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+          </li>
+          <li class="hover:text-blue-400 transition-colors duration-300 cursor-pointer relative group">
+            <a href="/error404.html">Services</a>
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+          </li>
+          <!-- Contact button with smooth scroll -->
+          <li class="hover:text-blue-400 transition-colors duration-300 cursor-pointer relative group">
+            <a href="https://discord.com/users/1227883381597929473" class="scroll-smooth">Contact</a>
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+          </li>
           <li>
-            <button class="text-white bg-sky-500 px-6 py-2 rounded-full border-2 transition-all duration-300 hover:bg-green-400 hover:text-white">
-              Hire Me
+            <button class="text-white bg-blue-500 px-7 py-2.5 rounded-full border-2 border-transparent transition-all duration-300 hover:bg-transparent hover:border-blue-500 hover:text-blue-400 hover:shadow-lg hover:shadow-blue-500/30">
+              <a href="/error404.html">Hire Me</a>
             </button>
           </li>
         </ul>
         <!-- Mobile Menu Button -->
         <button class="md:hidden text-white" onclick="toggleMenu()">
-          <i class="fa-solid fa-bars text-3xl hover:text-sky-700 transition-colors duration-300"></i>
+          <i class="fa-solid fa-bars text-3xl hover:text-blue-400 transition-colors duration-300"></i>
         </button>
         <!-- Mobile Menu -->
-        <ul class="hidden absolute top-full right-0 left-0 bg-slate-800 mt-2 p-4 md:hidden space-y-4 text-white rounded-lg">
-          <li class="hover:text-sky-700 transition-colors duration-300 cursor-pointer">Home</li>
-          <li class="hover:text-sky-700 transition-colors duration-300 cursor-pointer">Project</li>
-          <li class="hover:text-sky-700 transition-colors duration-300 cursor-pointer">Services</li>
-          <li class="hover:text-sky-700 transition-colors duration-300 cursor-pointer">Contact</li>
+        <ul class="hidden absolute top-full right-0 left-0 glass-effect mt-2 p-6 md:hidden space-y-5 text-white rounded-lg border border-blue-900/50">
+          <li class="hover:text-blue-400 transition-colors duration-300 cursor-pointer"><a href="#">Home</a></li>
+          <li class="hover:text-blue-400 transition-colors duration-300 cursor-pointer"><a href="https://github.com/suyash-boop">Project</a></li>
+          <li class="hover:text-blue-400 transition-colors duration-300 cursor-pointer"><a href="/error404.html">Services</a></li>
+          <li class="hover:text-blue-400 transition-colors duration-300 cursor-pointer">Contact</li>
           <li>
-            <button class="w-full text-white bg-sky-500 px-6 py-2 rounded-full border-2 transition-all duration-300 hover:bg-green-400 hover:text-white">
-              Hire Me
+            <button class="w-full text-white bg-blue-500 px-6 py-3 rounded-full border-2 border-transparent transition-all duration-300 hover:bg-transparent hover:border-blue-500 hover:text-blue-400">
+              <a href="/error404.html">Hire Me</a>
             </button>
           </li>
         </ul>
       </nav>
     </div>
 
-    <!-- Add JavaScript for mobile menu toggle -->
+    <!--HERO-->
+    <div class="min-h-screen px-6 py-24 relative z-0 flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto">
+      <div class="relative z-10 max-w-3xl ml-0 md:ml-8 animate-fade-in">
+        <div class="inline-block relative">
+          <h1 class="text-5xl md:text-7xl font-bold text-white mb-9 animate-slide-in neon-blue">
+            YO! I'M <span class="text-blue-500 hover:text-blue-400 transition-colors duration-300 neon-blue">SUYASH</span>
+          </h1>
+          <!-- Adjusted border positions and sizes -->
+          <div class="absolute -top-6 -right-6 w-16 h-16 border-t-2 border-r-2 border-blue-500 opacity-70"></div>
+          <div class="absolute -bottom-1 -left-6 w-16 h-16 border-b-2 border-l-2 border-blue-500 opacity-70"></div>
+        </div>
+        <p class="text-gray-300 text-lg md:text-xl max-w-2xl leading-relaxed animate-slide-in-delayed-2">
+          Just a 19-year-old dev from India who started coding after being inspired by Discord Bot. I mess around with 
+          <span class="text-blue-400 hover:text-blue-300 transition-colors duration-300">TypeScript</span> most days, 
+          occasionally dive into <span class="text-blue-300 hover:text-blue-200 transition-colors duration-300">Rust</span> 
+          when I'm feeling brave, and have been known to write some 
+          <span class="text-blue-500 hover:text-blue-400 transition-colors duration-300">Go</span> when needed. 
+          When I'm not coding, you'll find me watching anime, whiffing my shots in Valorant (I blame my ping), 
+          or vibing to music. Got a cool project? Let's build something awesome!
+        </p>
+        <div class="mt-10 space-x-5 animate-fade-in-delayed">
+          <a href="mailto:suyashpadole715@gmail.com" class="inline-block text-white bg-blue-500 px-8 py-3.5 rounded-full border-2 border-transparent transition-all duration-300 hover:bg-transparent hover:border-blue-500 hover:text-blue-400 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/50">
+            <i class="fa-solid fa-envelope mr-2"></i> Get in Touch
+          </a>
+          <button class="text-white bg-transparent px-8 py-3.5 rounded-full border-2 border-blue-500 transition-all duration-300 hover:bg-blue-500/10 hover:scale-105">
+            <i class="fa-solid fa-code mr-2"></i> <a href="https://github.com/suyash-boop">View Projects
+          </a></button>
+        </div>
+        <div class="mt-10 flex space-x-8 animate-fade-in-delayed">
+          <a href="https://github.com/suyash-boop" class="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-2xl">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://x.com/Atlantisxd" class="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-2xl">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/suyash-padole-232b412ba/" class="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-2xl">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://www.instagram.com/suyash__xd/" class="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-2xl">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+      <div class="flex items-center justify-end pr-0 md:pr-8 mt-12 md:mt-0">
+        <div class="relative group transform hover:scale-105 transition-all duration-500">
+          <!-- Animated glow effect -->
+          <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 via-blue-400 to-blue-600 rounded-2xl blur-xl opacity-30 group-hover:opacity-50 animate-gradient-x"></div>
+          
+          <!-- Main image container - made bigger -->
+          <div class="relative overflow-hidden rounded-2xl border-2 border-blue-500/30 shadow-[0_0_25px_rgba(59,130,246,0.3)]">
+            <img 
+              src="./atlantis.jpg" 
+              alt="atlantis" 
+              class="relative hidden md:block w-[300px] md:w-[400px] object-cover rounded-2xl transition-transform duration-700 group-hover:scale-110 z-10"
+            >
+            
+            <!-- Enhanced overlay with gradient -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent rounded-2xl z-20"></div>
+            
+            <!-- Tech badges with improved styling -->
+            <div class="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2 z-30">
+              <span class="px-3 py-1 bg-blue-900/70 text-blue-100 text-xs font-medium rounded-full backdrop-blur-sm border border-blue-700/30">TypeScript</span>
+              <span class="px-3 py-1 bg-blue-900/70 text-blue-100 text-xs font-medium rounded-full backdrop-blur-sm border border-blue-700/30">React</span>
+              <span class="px-3 py-1 bg-blue-900/70 text-blue-100 text-xs font-medium rounded-full backdrop-blur-sm border border-blue-700/30">Go</span>
+              <span class="px-3 py-1 bg-blue-900/70 text-blue-100 text-xs font-medium rounded-full backdrop-blur-sm border border-blue-700/30">Rust</span>
+            </div>
+            
+            <!-- Decorative elements -->
+            <div class="absolute top-3 right-3 w-8 h-8 border-t-2 border-r-2 border-blue-400/50 rounded-tr-lg"></div>
+            <div class="absolute bottom-3 left-3 w-8 h-8 border-b-2 border-l-2 border-blue-400/50 rounded-bl-lg"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      /* Add this to your existing animations */
+      @keyframes gradient-x {
+        0%, 100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+      
+      .animate-gradient-x {
+        animation: gradient-x 15s ease infinite;
+        background-size: 200% 200%;
+      }
+      .animate-fade-in {
+        animation: fadeIn 1s ease-in;
+      }
+      .animate-fade-in-delayed {
+        animation: fadeIn 1s ease-in 0.5s both;
+      }
+      .animate-slide-in {
+        animation: slideIn 1s ease-out;
+      }
+      .animate-slide-in-delayed {
+        animation: slideIn 1s ease-out 0.3s both;
+      }
+      .animate-slide-in-delayed-2 {
+        animation: slideIn 1s ease-out 0.6s both;
+      }
+      
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateX(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      
+      @keyframes pulse {
+        0% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.1); opacity: 0.8; }
+        100% { transform: scale(1); opacity: 1; }
+      }
+      
+      .animate-pulse {
+        animation: pulse 3s infinite;
+      }
+      
+      .delay-75 {
+        animation-delay: 0.75s;
+      }
+    </style>
+
+    <!-- Add JavaScript for mobile menu toggle and particles -->
     <script>
       function toggleMenu() {
         const mobileMenu = document.querySelector('ul.absolute');
         mobileMenu.classList.toggle('hidden');
       }
+      
+      // Create floating particles
+      document.addEventListener('DOMContentLoaded', function() {
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = 70;
+        
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement('div');
+          particle.classList.add('particle');
+          
+          // Random position
+          const posX = Math.random() * 100;
+          const posY = Math.random() * 100;
+          particle.style.left = `${posX}%`;
+          particle.style.top = `${posY}%`;
+          
+          // Random size
+          const size = Math.random() * 3 + 1;
+          particle.style.width = `${size}px`;
+          particle.style.height = `${size}px`;
+          
+          // Blue theme colors
+          const colors = ['rgba(59, 130, 246, 0.5)', 'rgba(37, 99, 235, 0.5)', 'rgba(96, 165, 250, 0.5)'];
+          particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+          
+          // Random opacity
+          particle.style.opacity = Math.random() * 0.5 + 0.3;
+          
+          // Animation
+          const duration = Math.random() * 20 + 10;
+          particle.style.animation = `float ${duration}s ease-in-out infinite`;
+          particle.style.animationDelay = `${Math.random() * 5}s`;
+          
+          particlesContainer.appendChild(particle);
+        }
+      });
     </script>
   </body>
 </html>

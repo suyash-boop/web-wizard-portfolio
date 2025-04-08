@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .error-container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: clamp(4rem, 15vw, 12rem);
+            font-weight: 900;
+            margin: 0;
+            text-transform: uppercase;
+            background: linear-gradient(to right, #3b82f6, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 20px rgba(59, 130, 246, 0.5);
+        }
+
+        p {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            color: #64748b;
+            margin-top: 1rem;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background-color: #3b82f6;
+            color: white;
+            text-decoration: none;
+            border-radius: 9999px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #2563eb;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <h1>Error 404</h1>
+        <p>Oops! The page you're looking for doesn't exist.</p>
+        <a href="index.html" class="back-button">Go Back Home</a>
+    </div>
+</body>
+</html>
