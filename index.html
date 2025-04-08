@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"/>
+  </head>
+  <body class="bg-slate-900">
+    <div class="px-4 py-4">
+      <nav class="flex items-center justify-between relative">
+        <a
+          href="#"
+          class="text-blue-300 text-4xl font-bold border-2 border-red-500 px-4 py-2 transition-colors duration-300 hover:text-blue-400"
+          >Atlantis</a>
+        <!-- Desktop Menu -->
+        <ul class="hidden md:flex items-center text-white space-x-10">
+          <li class="hover:text-sky-700 transition-colors duration-300 cursor-pointer">Home</li>
+          <li class="hover:text-sky-700 transition-colors duration-300 cursor-pointer">Project</li>
+          <li class="hover:text-sky-700 transition-colors duration-300 cursor-pointer">Services</li>
+          <li class="hover:text-sky-700 transition-colors duration-300 cursor-pointer">Contact</li>
+          <li>
+            <button class="text-white bg-sky-500 px-6 py-2 rounded-full border-2 transition-all duration-300 hover:bg-green-400 hover:text-white">
+              Hire Me
+            </button>
+          </li>
+        </ul>
+        <!-- Mobile Menu Button -->
+        <button class="md:hidden text-white" onclick="toggleMenu()">
+          <i class="fa-solid fa-bars text-3xl hover:text-sky-700 transition-colors duration-300"></i>
+        </button>
+        <!-- Mobile Menu -->
+        <ul class="hidden absolute top-full right-0 left-0 bg-slate-800 mt-2 p-4 md:hidden space-y-4 text-white rounded-lg">
+          <li class="hover:text-sky-700 transition-colors duration-300 cursor-pointer">Home</li>
+          <li class="hover:text-sky-700 transition-colors duration-300 cursor-pointer">Project</li>
+          <li class="hover:text-sky-700 transition-colors duration-300 cursor-pointer">Services</li>
+          <li class="hover:text-sky-700 transition-colors duration-300 cursor-pointer">Contact</li>
+          <li>
+            <button class="w-full text-white bg-sky-500 px-6 py-2 rounded-full border-2 transition-all duration-300 hover:bg-green-400 hover:text-white">
+              Hire Me
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Add JavaScript for mobile menu toggle -->
+    <script>
+      function toggleMenu() {
+        const mobileMenu = document.querySelector('ul.absolute');
+        mobileMenu.classList.toggle('hidden');
+      }
+    </script>
+  </body>
+</html>
